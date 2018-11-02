@@ -7,17 +7,17 @@ ALTER TABLE DISASTER_MANAGEMENT_SYSTEM.ACCOUNTS ADD CONSTRAINT CK_Table_Role
 
 INSERT INTO ACCOUNTS(AccountID, FirstName, LastName, EmailAddress, Password, Role, UserName, Zipcode) VALUES(1, 'Jane', 'Doe', 'jane.doe@gmail.com', 'Password1', 'Responder', 'jdoe1', 52241);
 
--- CREATE TABLE REQUESTS(RequestorID int, Requestor varchar(50), ItemID int, ItemTitle varchar(50), ExpireDate date, RequestOn date, Quantity int, Category varchar(50));
--- ALTER TABLE DISASTER_MANAGEMENT_SYSTEM.REQUESTS ADD CONSTRAINT CK_Category
---     CHECK (Category IN ('Food', 'Volunteer', 'Supplies'));
---     
--- CREATE TABLE DONATIONS(DonatorID int, Donator varchar(50), ItemID int, DonationTitle varchar(50), ExpireDate date, Quantity int, Category varchar(50));
--- ALTER TABLE DISASTER_MANAGEMENT_SYSTEM.DONATIONS ADD CONSTRAINT CK_Category
---     CHECK (Category IN ('Food', 'Volunteer', 'Supplies'));
-
-CREATE TABLE TRANSACTIONS(RequestorID int, DonatorID int, ItemID int, Quantity int, Category varchar(50), ExpireDate date, RequestOn date, RequestFufilled date, TransactionTYPE char);
-ALTER TABLE DISASTER_MANAGEMENT_SYSTEM.TRANSACTIONS ADD CONSTRAINT CK_Category
+CREATE TABLE REQUESTS(RequestorID int, Requestor varchar(50), ItemID int, ItemTitle varchar(50), ExpireDate date, RequestOn date, Quantity int, Category varchar(50));
+ALTER TABLE DISASTER_MANAGEMENT_SYSTEM.REQUESTS ADD CONSTRAINT CK_Category
     CHECK (Category IN ('Food', 'Volunteer', 'Supplies'));
+    
+CREATE TABLE DONATIONS(DonatorID int, Donator varchar(50), ItemID int, DonationTitle varchar(50), ExpireDate date, Quantity int, Category varchar(50));
+ALTER TABLE DISASTER_MANAGEMENT_SYSTEM.DONATIONS ADD CONSTRAINT CK_Category
+    CHECK (Category IN ('Food', 'Volunteer', 'Supplies'));
+
+-- CREATE TABLE TRANSACTIONS(RequestorID int, DonatorID int, ItemID int, Quantity int, Category varchar(50), ExpireDate date, RequestOn date, RequestFufilled date, TransactionTYPE char);
+-- ALTER TABLE DISASTER_MANAGEMENT_SYSTEM.TRANSACTIONS ADD CONSTRAINT CK_Category
+--     CHECK (Category IN ('Food', 'Volunteer', 'Supplies'));
     
 CREATE TABLE DISASTERS(DisasterID int, Title varchar(50), ZipCode int, Location varchar(50), StartDate date, PRIMARY KEY( DisasterID));
 
